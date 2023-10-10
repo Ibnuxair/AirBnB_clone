@@ -6,7 +6,7 @@ import cmd, sys
 class AirBnBConsole(cmd.Cmd):
     """ This is the class defination 4 cmd """
 
-    prompt = ">>> "
+    prompt = "hbnb "
 
 if __name__ == "__main__":
     AirBnBConsole().cmdloop()
