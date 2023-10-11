@@ -20,6 +20,48 @@ class TestBaseModel(unittest.TestCase):
         instance = BaseModel()
         self.assertIsInstance(instance, BaseModel)
 
+    def test_create_instance_with_args(self):
+        """ Test creating an instance with args. """
+
+        args = ('arg1', 'arg2', 'arg3')
+        instance = BaseModel(*args)
+        self.assertIsInstance(instance, BaseModel)
+
+    def test_create_instance_with_kwargs(self):
+        """ Test creating an instance with kwargs. """
+
+        kwargs = {
+            'id': '123',
+            'created_at': '2023-10-11T12:00:00.000000',
+            'updated_at': '2023-10-11T12:00:00.000000',
+            'custom_attribute': 'custom_value',
+            '__class__': 'BaseModel'
+        }
+        instance = BaseModel(**kwargs)
+        self.assertIsInstance(instance, BaseModel)
+        self.assertEqual(instance.id, '123')
+        self.assertIsInstance(instance.created_at, datetime)
+        self.assertIsInstance(instance.updated_at, datetime)
+        self.assertEqual(instance.custom_attribute, 'custom_value')
+
+    def test_create_instance_with_args_and_kwargs(self):
+        """ Test creating an instance with both args and kwargs. """
+
+        args = ('arg1', 'arg2', 'arg3')
+        kwargs = {
+            'id': '123',
+            'created_at': '2023-10-11T12:00:00.000000',
+            'updated_at': '2023-10-11T12:00:00.000000',
+            'custom_attribute': 'custom_value',
+            '__class__': 'BaseModel'
+        }
+        instance = BaseModel(*args, **kwargs)
+        self.assertIsInstance(instance, BaseModel)
+        self.assertEqual(instance.id, '123')
+        self.assertIsInstance(instance.created_at, datetime)
+        self.assertIsInstance(instance.updated_at, datetime)
+        self.assertEqual(instance.custom_attribute, 'custom_value')
+
     def test_id_is_valid_uuid(self):
         """ Test if the id is valid uuid4"""
 

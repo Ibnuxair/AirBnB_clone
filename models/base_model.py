@@ -10,12 +10,25 @@ from uuid import uuid4 as id
 
 
 class BaseModel:
-    def __init__(self, *args, **kwargs):
-        """ Initializes the attributes"""
+    """ A base class to be inherited by other classes. """
 
-        self.id = str(id())
-        self.created_at = time.now()
-        self.updated_at = self.created_at
+    def __init__(self, *args, **kwargs):
+        """ Initializes the attributes. """
+
+        if kwargs:
+            # Convert 'created_at' and 'updated_at' strings to datetime objects
+            kwargs['created_at'] = time.strptime(
+                kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
+            kwargs['updated_at'] = time.strptime(
+                kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
+
+            for k, v in kwargs.items():
+                if k != '__class__':
+                    setattr(self, k, v)
+        else:
+            self.id = str(id())
+            self.created_at = time.now()
+            self.updated_at = self.created_at
 
     def __str__(self):
         """ Returns the string representation of the object."""
