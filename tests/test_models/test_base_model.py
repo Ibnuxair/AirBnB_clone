@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 """
 This module defines a class named TestBaseModel.
 """
@@ -77,6 +78,6 @@ class TestBaseModel(unittest.TestCase):
             instance_dict['updated_at']
         )
 
+
 if __name__ == '__main__':
     unittest.main()
-
