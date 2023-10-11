@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This is the class defination 4 de airbnb project """
 import cmd, sys
+from models import BaseModel
 
 
 class AirBnBConsole(cmd.Cmd):
