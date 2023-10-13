@@ -7,6 +7,7 @@ This is a module that defines the base class.
 
 from datetime import datetime as time
 from uuid import uuid4 as id
+from models.__init__ import storage
 
 
 class BaseModel:
@@ -25,10 +26,14 @@ class BaseModel:
             for k, v in kwargs.items():
                 if k != '__class__':
                     setattr(self, k, v)
+
         else:
             self.id = str(id())
             self.created_at = time.now()
             self.updated_at = self.created_at
+
+        # If it's a new instance, add a call to the new method on storage
+        storage.new(self)
 
     def __str__(self):
         """ Returns the string representation of the object."""
@@ -39,6 +44,7 @@ class BaseModel:
     def save(self):
         """ Updates the public instance attribute updated_at. """
         self.updated_at = time.now()
+        storage.save()
 
     def to_dict(self):
         """
