@@ -1,13 +1,27 @@
-#!/usr/bin/python3
-""" This is the class defination 4 de airbnb project """
-import cmd, sys
-from models import BaseModel
+#!/usr/bin/env python3
+
+"""
+This module defines a class named HBNBCommand.
+"""
 
 
-class AirBnBConsole(cmd.Cmd):
-    """ This is the class representation 4 cmd """
+import cmd
+import sys
+
+class HBNBCommand(cmd.Cmd):
+    """ The entry point of the command interpreter. """
 
     prompt = "(hbnb) "
 
-if __name__ == "__main__":
-    AirBnBConsole().cmdloop()
+    def do_quit(self, args):
+        """ Quit command to exit the program. """
+
+        sys.exit()
+
+    def emptyline(self):
+        """ Called when an empty line is entered. """
+
+        pass
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
