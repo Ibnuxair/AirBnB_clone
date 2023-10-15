@@ -8,6 +8,7 @@ This module defines a class named HBNBCommand.
 import cmd
 import sys
 
+
 class HBNBCommand(cmd.Cmd):
     """ The entry point of the command interpreter. """
 
@@ -18,10 +19,17 @@ class HBNBCommand(cmd.Cmd):
 
         sys.exit()
 
+    def do_EOF(self, args):
+        """This EOF signal is to exit the program."""
+
+        print("")
+        sys.exit()
+
     def emptyline(self):
         """ Called when an empty line is entered. """
 
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
