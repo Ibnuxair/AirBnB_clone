@@ -17,7 +17,6 @@ my_classes = {
 }
 
 
-
 class HBNBCommand(cmd.Cmd):
     """ The entry point of the command interpreter. """
 
