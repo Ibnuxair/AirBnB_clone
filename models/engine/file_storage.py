@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines a class named FileStorage
 """
@@ -9,7 +11,7 @@ import os
 
 class FileStorage:
     """
-    Serializes instances to a JSON file and deserializes JSON file to instances
+    Serializes instances to a JSON file and deserializes JSON file to inst.
     """
 
     __file_path = 'file.json'
