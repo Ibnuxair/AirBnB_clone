@@ -17,6 +17,7 @@ my_classes = {
 }
 
 
+
 class HBNBCommand(cmd.Cmd):
     """ The entry point of the command interpreter. """
 
@@ -25,6 +26,12 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, args):
         """ Quit command to exit the program. """
 
+        sys.exit()
+
+    def do_EOF(self, args):
+        """This EOF signal is to exit the program."""
+
+        print("")
         sys.exit()
 
     def emptyline(self):
