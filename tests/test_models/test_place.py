@@ -8,6 +8,7 @@ This module defines a class named TestPlace.
 import unittest
 from models.place import Place
 
+
 class TestPlace(unittest.TestCase):
     """ Test class for Place """
 
@@ -26,6 +27,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.latitude, 0.0)
         self.assertEqual(place.longitude, 0.0)
         self.assertEqual(place.amenity_ids, [])
+
 
 if __name__ == '__main__':
     unittest.main()
