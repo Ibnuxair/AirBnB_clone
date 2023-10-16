@@ -55,6 +55,5 @@ class FileStorage:
         """ Deserializes the JSON file to __objects. """
 
         if os.path.exists(FileStorage.__file_path):
-            with open(
-                    FileStorage.__file_path, "r", encoding="utf-8") as a_file:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as a_file:
                 FileStorage.__objects = loads(a_file.read())
