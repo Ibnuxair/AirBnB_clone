@@ -7,6 +7,7 @@ This module defines a class named FileStorage
 
 from json import dumps, loads
 import os
+from models.my_classes import my_classes
 
 
 class FileStorage:
@@ -55,5 +56,13 @@ class FileStorage:
         """ Deserializes the JSON file to __objects. """
 
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, "r", encoding="utf-8") as a_file:
-                FileStorage.__objects = loads(a_file.read())
+            with open(
+                    FileStorage.__file_path, "r", encoding="utf-8") as a_file:
+                deserialized_objs = loads(a_file.read())
+
+                for k, v in deserialized_objs.items():
+                    class_name, obj_id = k.split(".")
+                    if class_name in my_classes:
+                        obj_class = my_classes[class_name]
+                        obj = obj_class(**v)
+                        self.new(obj)

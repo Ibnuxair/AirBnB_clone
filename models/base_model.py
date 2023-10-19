@@ -7,7 +7,6 @@ This is a module that defines the base class.
 
 from datetime import datetime as time
 from uuid import uuid4 as id
-from models.__init__ import storage
 
 
 class BaseModel:
@@ -33,6 +32,7 @@ class BaseModel:
             self.updated_at = self.created_at
 
         # If it's a new instance, add a call to the new method on storage
+        from models import storage
         storage.new(self)
 
     def __str__(self):
@@ -44,6 +44,7 @@ class BaseModel:
     def save(self):
         """ Updates the public instance attribute updated_at. """
         self.updated_at = time.now()
+        from models import storage
         storage.save()
 
     def to_dict(self):

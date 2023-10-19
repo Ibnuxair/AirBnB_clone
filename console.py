@@ -7,14 +7,8 @@ This module defines a class named HBNBCommand.
 
 import cmd
 import sys
-from models.base_model import BaseModel
+from models.my_classes import my_classes
 from models.__init__ import storage
-
-
-# Create a dictionary to map class names to their corresponding classes
-my_classes = {
-    'BaseModel': BaseModel,
-}
 
 
 class HBNBCommand(cmd.Cmd):
