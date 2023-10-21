@@ -1,0 +1,1 @@
+#This is thhe readme file for Airbnb clone on static web page
