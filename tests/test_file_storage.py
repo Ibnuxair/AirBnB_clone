@@ -30,7 +30,7 @@ class TestFileStorage(unittest.TestCase):
         """ Test the all() method with an empty dictionary. """
 
         objects_dict = self.storage.all()
-        self.assertIsNotEqual(objects_dict, {})
+        self.assertNotEqual(objects_dict, {})
 
     def test_new_object_addition(self):
         """ Test adding a new object to __objects dictionary using new(). """
