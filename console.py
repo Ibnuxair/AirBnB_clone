@@ -99,18 +99,9 @@ class HBNBCommand(cmd.Cmd):
         """
 
         all_objects = storage.all()
-        result = []
 
         if not arg:
-            instances = [
-                f"[{class_name}] ({obj_id}) {v}"
-                for k, v in all_objects.items()
-                for class_name, obj_id, v in [
-                        (k.split(".")[0], k.split(".")[1], v)]
-            ]
-            result.extend(instances)
-
-            print(result)
+            print(all_objects)
         elif arg not in my_classes:
             print("** class doesn't exist **")
         else:
