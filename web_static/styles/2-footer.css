@@ -1,8 +1,15 @@
-.second {
+.footer {
     background-color: #00FF00;
     height: 60px;
     width: 100%;
     text-align: center;
     position: absolute;
     bottom: 0;
+}
+
+footer.p{
+    color: #000000;
+    text-align: center;
+    line-height: 60px;
+    margin: 0;
 }
