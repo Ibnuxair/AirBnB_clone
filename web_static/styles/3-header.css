@@ -1,16 +1,14 @@
-.header {
+.web_header {
     color: white;
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
 }
 
-.header-logo {
-    background-image: url("/AirBnB_clone/web_static/images/logo.png");
-    background-color: white;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 50px;
+.logo {
     height: 50px;
-    margin-right: 20px;
+    width: 120px;
+    background-image: url('images/logo.png');
+    background-size: cover;
+    margin: 10px 0;
 }
