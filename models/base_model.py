@@ -38,10 +38,8 @@ class BaseModel:
     def __str__(self):
         """ Returns the string representation of the object."""
 
-        obj_dict = {k: v for k, v in self.__dict__.items() if v}
-
         return "[{}] ({}) {}".format(
-            self.__class__.__name__, self.id, obj_dict)
+            self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """ Updates the public instance attribute updated_at. """
