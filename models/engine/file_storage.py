@@ -37,7 +37,13 @@ class FileStorage:
     def all(self):
         """ Returns the dictionary __objects. """
 
-        return FileStorage.__objects
+        all_objects = {}
+        for key, obj in FileStorage.__objects.items():
+            class_name, obj_id = key.split(".")
+            if class_name in my_classes:
+                all_objects[key] = obj
+
+        return all_objects
 
     def new(self, obj):
         """ Sets in __objects the obj with key <obj class name>.id """

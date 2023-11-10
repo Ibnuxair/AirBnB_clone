@@ -101,20 +101,20 @@ class HBNBCommand(cmd.Cmd):
         all_objects = storage.all()
 
         if not arg:
-            print(all_objects)
+            instances = [
+                "{}".format(str(obj))
+                for k, obj in all_objects.items()
+            ]
+            print(instances)
         elif arg not in my_classes:
             print("** class doesn't exist **")
         else:
             instances = [
-                "[{}] ({}) {}".format(class_name, obj_id, v)
-                for k, v in all_objects.items()
+                "{}".format(str(obj))
+                for k, obj in all_objects.items()
                 if k.split(".")[0] == arg
-                for class_name, obj_id, v in [
-                        (k.split(".")[0], k.split(".")[1], v)]
             ]
-            result.extend(instances)
-
-            print(result)
+            print(instances)
 
     def do_update(self, args):
         """ Updates an instance based on the class name and id """
