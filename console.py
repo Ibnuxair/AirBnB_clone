@@ -8,7 +8,7 @@ This module defines a class named HBNBCommand.
 import cmd
 import sys
 from models.my_classes import my_classes
-from models.__init__ import storage
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
