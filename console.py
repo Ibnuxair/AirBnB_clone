@@ -9,6 +9,7 @@ import cmd
 import sys
 from models.my_classes import my_classes
 from models import storage
+from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -90,7 +91,9 @@ class HBNBCommand(cmd.Cmd):
                 if k not in storage.all():
                     print("** no instance found **")
                 else:
-                    storage.all().pop(k)
+                    # Remove the object from __objects directly
+                    FileStorage._FileStorage__objects.pop(k)
+                    # Save the updated __objects
                     storage.save()
 
     def do_all(self, arg):
