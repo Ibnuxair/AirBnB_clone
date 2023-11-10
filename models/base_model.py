@@ -12,6 +12,8 @@ from uuid import uuid4 as id
 class BaseModel:
     """ A base class to be inherited by other classes. """
 
+    test_name = ""
+    
     def __init__(self, *args, **kwargs):
         """ Initializes the attributes. """
 
