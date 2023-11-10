@@ -14,7 +14,8 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
+    test_name = ""
+    
     def __init__(self, *args, **kwargs):
         """ Initializes the attributes."""
 
