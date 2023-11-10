@@ -162,10 +162,14 @@ class HBNBCommand(cmd.Cmd):
                         elif attribute_type is str:
                             attribute_value = str(attribute_value)
 
-                        # Update the attribute and save the instance
-                        setattr(obj, attribute_name, attribute_value)
+                            # Update the attribute
+                            setattr(obj, attribute_name, attribute_value)
 
-                    storage.save()
+                            # Save the instance
+                            storage.save()
+
+                            # Reload the storage to reflect the changes
+                            storage.reload()
 
 
 if __name__ == '__main__':
