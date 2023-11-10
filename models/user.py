@@ -19,6 +19,12 @@ class User(BaseModel):
         self.first_name = kwargs.get('first_name', "")
         self.last_name = kwargs.get('last_name', "")
 
+    @classmethod
+    def all(cls):
+        """Returns a list of all instances of the User class."""
+
+        return [obj for obj in storage.all().values() if isinstance(obj, cls)]
+
     def __str__(self):
         """ Returns the string representation of the object."""
 
