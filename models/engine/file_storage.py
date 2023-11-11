@@ -8,7 +8,7 @@ This module defines a class named FileStorage
 from json import dumps, loads
 import os
 from models.my_classes import my_classes
-
+from datetime import datetime
 
 class FileStorage:
     """
@@ -27,7 +27,7 @@ class FileStorage:
 
         my_dict = {}
         for obj_id, obj in objs_dic.items():
-            if hasattr(obj, 'to_dict'):
+            if hasattr(obj, 'to_dict') and callable(getattr(obj, 'to_dict')):
                 my_dict[obj_id] = obj.to_dict()
             elif isinstance(obj, dict):
                 my_dict[obj_id] = obj
